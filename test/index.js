@@ -38,4 +38,28 @@ test('Counter App', (route) => {
       });
 
   });
+
+  route.test('GET /api/counters/1/increment', (should) => {
+
+    let currentCount;
+
+    agent.get('/api/counters/1')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+
+        currentCount = res.body.count;
+
+        agent.get('/api/counters/1/increment')
+          .expect(200)
+          .expect('Content-Type', /json/)
+          .end((err, res) => {
+
+            should.equal( res.body.count, currentCount + 1 );
+            should.end();
+          });
+
+      });
+
+  });
 });
