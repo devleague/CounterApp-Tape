@@ -14,8 +14,15 @@ function incrementById( id ){
   return counter;
 }
 
+function decrementById( id ){
+  let counter = getById(id);
+  counter.count--;
+  return counter;
+}
+
 module.exports = (()=> ({
   data,
   getById,
-  incrementById
+  incrementById,
+  decrementById
 }))();
