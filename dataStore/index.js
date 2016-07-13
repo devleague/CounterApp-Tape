@@ -32,10 +32,23 @@ function create( counter ){
   return data[counter.id];
 }
 
+function updateById( id, payload ){
+  let counter = getById(id);
+
+  if( !counter ){
+    return false;
+  }
+
+  counter.count = payload.count;
+
+  return counter;
+}
+
 module.exports = (()=> ({
   data,
   getById,
   incrementById,
   decrementById,
-  create
+  create,
+  updateById
 }))();

@@ -17,5 +17,7 @@ router.get('/:id/increment', (req, res) => res.json(ds.incrementById(req.params.
 
 router.get('/:id/decrement', (req, res) => res.json(ds.decrementById(req.params.id)));
 
+router.put('/:id', (req, res) => res.json(ds.updateById(req.params.id, req.body)));
+
 
 module.exports = router;
