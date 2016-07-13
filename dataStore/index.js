@@ -20,9 +20,22 @@ function decrementById( id ){
   return counter;
 }
 
+function create( counter ){
+  if( getById(counter.id) ){
+    return false;
+  }
+
+  data[counter.id] = {
+    count : counter.count
+  };
+
+  return data[counter.id];
+}
+
 module.exports = (()=> ({
   data,
   getById,
   incrementById,
-  decrementById
+  decrementById,
+  create
 }))();

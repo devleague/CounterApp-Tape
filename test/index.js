@@ -86,4 +86,33 @@ test('Counter App', (route) => {
       });
 
   });
+
+  route.test('POST /api/counters', (should) => {
+
+    let payload = {
+      id : 99,
+      count : 99
+    };
+
+    agent.post('/api/counters')
+      .send(payload)
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+
+        should.deepEqual( res.body, { count : payload.count }, 'should return the created counter' );
+
+        agent.get('/api/counters/99')
+          .expect(200)
+          .expect('Content-Type', /json/)
+          .end((err, resVerify) => {
+
+            should.equal( resVerify.body.count, payload.count );
+            should.end();
+          });
+
+
+      });
+
+  });
 });
