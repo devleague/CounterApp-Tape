@@ -22,4 +22,20 @@ test('Counter App', (route) => {
       });
 
   });
+
+  route.test('GET /api/counters/1', (should) => {
+
+    agent.get('/api/counters/1')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+
+        should.equal( typeof res.body, 'object', 'response should be a json object' );
+        should.equal( Object.keys(res.body).length, 1, 'response should have only key' );
+        should.ok( res.body.hasOwnProperty('count'), 'response should only have the "count" property' );
+        should.end();
+
+      });
+
+  });
 });

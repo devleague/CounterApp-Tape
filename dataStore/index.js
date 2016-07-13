@@ -1,6 +1,13 @@
 'use strict';
 
 const counters = {
-  1 : { count : 1 }
+  data : {
+    1 : { count : 1 }
+  },
+
+  getById( id ){
+    return counters.data[id];
+  }
+
 };
 module.exports = (()=> counters)();
