@@ -1,6 +1,6 @@
 # Counter App
 
-## Code Calesthenics
+## Code Calisthenics
 
 Example app that demonstrates how to test an express api using [tape](https://github.com/substack/tape)
 
