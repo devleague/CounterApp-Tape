@@ -2,7 +2,7 @@
 
 ## Code Calisthenics
 
-Example app that demonstrates how to test an express api using [tape](https://github.com/substack/tape() and [supertest](https://github.com/visionmedia/supertest)
+Example app that demonstrates how to test an express api using [tape](https://github.com/substack/tape) and [supertest](https://github.com/visionmedia/supertest)
 
 clone and run `npm i` to install dependencies
 
